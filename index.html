@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBRAHIM ELECTRONICS INVOICE</title>
+    <!-- logo or icon at the start of the title of your website (in the browser tab) -->
+
+    <link rel="icon" type="image/x-icon" href="image/pika.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="stye.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Animate.css CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- AOUS LINS/ -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+</head>
+<style>
+    .container {
+display: block;}
+
+.invoice-card {
+  background: #ffffff;
+  margin: auto;
+  overflow: hidden;
+  width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.invoice-header {
+  color: #ffffff;
+  padding: 20px;
+  padding-left: 90px;
+  text-align: start;
+}
+
+.invoice-footer {
+  color: #000000;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  text-align: start;
+}
+
+.btn-add-item {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+@media screen {
+  .invoice-card {
+      max-height: 297mm;
+      overflow-y: auto;
+  }
+}
+
+
+@media print {
+  body {
+      background: white;
+      -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+      display: none !important;
+  }
+ano-print-col
+  .no-print-col {
+      display: none !important;
+  }
+
+  .invoice-card {
+      margin: 0;
+      box-shadow: none;
+      border: none;
+      width: 210mm; /* A4 width */
+      height: 297mm; /* A4 height */
+      overflow: visible; /* Ensure all content fits when printing */
+  }
+
+  @page {
+      size: A4; /* Set to A4 size */
+      margin: 0; /* Remove default margins */
+  }
+}
+
+</style>
+
+<div class="container position-relative">
+    <div class="invoice-card" id="invoice"
+        style="background-image: url('background.jpeg');background-size: cover;background-repeat: no-repeat;">
+        <div class="invoice-header">
+            <h1 class="mb-0 pb-0" style="height: 75px;"><strong style="font-size: 75px;">INVOICE</strong></h1>
+            <p class="mt-0 pt-0 fs-3">IBRAHIM ELECTRONICS </p>
+            <div class="mb-0">
+                <p class="mb-0 pb-0" contenteditable="true">INVOICE NO: #1234</p>
+                <span contenteditable="true">2024-12-29</span>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+
+            <!-- "Invoice To" -->
+            <div class="row mb-4">
+                <div class="col-md-11" style="text-align: end;">
+                    <h5 class="mb-0 pb-0 " style="height: 16px;"><strong>Invoice To:</strong></h5>
+                    <p class="mb-0 mb-0" contenteditable="true"> <span style="font-size: 30px;"> <b>Humair Nabi</b></p>
+                    <p contenteditable="true">Khanpur-Punjab</p>
+                </div>
+
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered text-center table-striped">
+                <thead>
+                    <tr >
+                        <th style="background-color: #000080;color: white;">Discription</th>
+                        <th style="background-color: #000080;color: white;">Qty</th>
+                        <th style="background-color: #000080;color: white;">Cost</th>
+                        <th style="background-color: #000080;color: white;">Subtotal</th>
+                        <th style="background-color: #000080;color: white;" class="no-print-col">Action</th>
+                    </tr>
+                </thead>
+            
+                <tbody id="invoice-body">
+                    <tr>
+                        <td contenteditable="true">Item 1</td>
+                        <td contenteditable="true" class="quantity">1</td>
+                        <td contenteditable="true" class="price">100</td>
+                        <td class="total">100</td>
+                        <td class="no-print-col"><button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="text-center no-print">
+                <button class="btn btn-add-item" onclick="addRow()">Add Item</button>
+                <div class="invoice-footer no-print">
+                    <!-- <button class="btn btn-primary" onclick="window.print()">Print Invoice</button> -->
+                    <button class="btn btn-success" onclick="downloadInvoice()">Download Invoice</button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">     
+                <h5 class="fw-bold ">Sub Total: <span id="grand-total">100</span></h5>
+            </div>
+            <div class="d-flex justify-content-end">
+                <label class="fw-bold me-2 mt-1">Delivery charges:</label>
+                <input type="number" id="delivery-fees" value="0" class="form-control border-0 bg-transparent" style="width: 11%;"
+                    oninput="updateGrandTotal()">
+            </div>
+            <div class="d-flex justify-content-end">
+                <label class="fw-bold me-2 mt-1">Advance Received:</label>
+                <input type="number" id="received-amount" value="0" class="form-control border-0 bg-transparent" style="width: 11%;"                    oninput="updateGrandTotal()">
+            </div>
+            
+            <div class="d-flex justify-content-end ">
+                <h5 class="fw-bold text-white px-3 py-2" style="background-color: #000080 !important;">Remaining Amount : <span id="final-total">100</span></h5>
+            </div>
+        </div>
+
+       
+        <div class="row" style="position: absolute; bottom: 3%;">
+            <div class="col-md-12 mx-2">
+                <h4><b>CONTACT US</b></h4>
+                <button class="btn"
+                    style="background-color: #000080; color: white; width: 30px; height: 30px; border-radius: 50%; padding: 0;">
+                    <i class="fas fa-phone fa-sm"></i>
+                </button> 03327009020<br>
+                <button class="btn mt-2"
+                    style="background-color: #000080; color: white; width: 30px; height: 30px; border-radius: 50%; padding: 0;">
+                    <i class="fas fa-map-marker-alt fa-sm"></i>
+                </button> Ibrahim Electronics, GM Abad, Faisalabad
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- Script for Adding and Removing Rows -->
+<script>
+    function addRow() {
+        const tableBody = document.getElementById('invoice-body');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td contenteditable="true">New Item</td>
+          <td contenteditable="true" class="quantity">1</td>
+          <td contenteditable="true" class="price">0</td>
+          <td class="total">0</td>
+          <td class="no-print-col"><button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+        `;
+        tableBody.appendChild(newRow);
+        updateGrandTotal();
+    }
+
+    function removeRow(button) {
+        button.parentElement.parentElement.remove();
+        updateGrandTotal();
+    }
+
+    document.getElementById('invoice-body').addEventListener('input', updateGrandTotal);
+    function updateGrandTotal() {
+        const rows = document.querySelectorAll('#invoice-body tr');
+        let grandTotal = 0;
+        rows.forEach(row => {
+            const quantity = parseFloat(row.querySelector('.quantity').innerText) || 0;
+            const price = parseFloat(row.querySelector('.price').innerText) || 0;
+            const total = quantity * price;
+            row.querySelector('.total').innerText = total.toFixed(2);
+            grandTotal += total;
+        });
+        document.getElementById('grand-total').innerText = grandTotal.toFixed(2);
+    }
+</script>
+<!-- Scrtip for subtotal recived and Remainingammount -->
+<script>
+    function updateGrandTotal() {
+        const rows = document.querySelectorAll('#invoice-body tr');
+        let grandTotal = 0;
+
+        rows.forEach(row => {
+            const quantity = parseFloat(row.querySelector('.quantity').innerText) || 0;
+            const price = parseFloat(row.querySelector('.price').innerText) || 0;
+            const total = quantity * price;
+            row.querySelector('.total').innerText = total.toFixed(2);
+            grandTotal += total;
+        });
+
+        document.getElementById('grand-total').innerText = grandTotal.toFixed(2);
+
+        const deliveryFees = parseFloat(document.getElementById('delivery-fees').value) || 0;
+        const receivedAmount = parseFloat(document.getElementById('received-amount').value) || 0;
+
+        const finalTotal = grandTotal + deliveryFees - receivedAmount;
+        document.getElementById('final-total').innerText = finalTotal.toFixed(2);
+    }
+
+</script>
+<!-- Script for Downloading Invoice as PDF -->
+<script> 
+    function downloadInvoice() {
+    // Select elements to hide during download
+    const downloadButton = document.querySelector('.btn-success');
+    const addItemButton = document.querySelector('.btn-add-item');
+    const actionColumns = document.querySelectorAll('.no-print-col');
+
+    // Hide elements
+    downloadButton.style.display = 'none';
+    addItemButton.style.display = 'none';
+    actionColumns.forEach(column => (column.style.display = 'none'));
+
+    const element = document.getElementById('invoice');
+    const options = {
+        margin: 0,
+        filename: 'invoice.pdf',
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+    };
+
+    // Generate PDF
+    html2pdf().set(options).from(element).save().then(() => {
+        // Restore elements
+        downloadButton.style.display = '';
+        addItemButton.style.display = '';
+        actionColumns.forEach(column => (column.style.display = ''));
+    });
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

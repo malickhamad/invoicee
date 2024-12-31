@@ -1,0 +1,68 @@
+.container {
+display: block;}
+
+.invoice-card {
+  background: #ffffff;
+  margin: auto;
+  overflow: hidden;
+  width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.invoice-header {
+  color: #ffffff;
+  padding: 20px;
+  padding-left: 90px;
+  text-align: start;
+}
+
+.invoice-footer {
+  color: #000000;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  text-align: start;
+}
+
+.btn-add-item {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+@media screen {
+  .invoice-card {
+      max-height: 297mm;
+      overflow-y: auto;
+  }
+}
+
+
+@media print {
+  body {
+      background: white;
+      -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+      display: none !important;
+  }
+ano-print-col
+  .no-print-col {
+      display: none !important;
+  }
+
+  .invoice-card {
+      margin: 0;
+      box-shadow: none;
+      border: none;
+      width: 210mm; /* A4 width */
+      height: 297mm; /* A4 height */
+      overflow: visible; /* Ensure all content fits when printing */
+  }
+
+  @page {
+      size: A4; /* Set to A4 size */
+      margin: 0; /* Remove default margins */
+  }
+}
